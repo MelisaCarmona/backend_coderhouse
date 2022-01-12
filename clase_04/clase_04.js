@@ -1,51 +1,73 @@
 const fs = require('fs');
 
-class Contenedor {
+class Container {
 
-    constructor() {}
-        /** Guarda el objeto en el archivo */
-    save(object) {
-        let array_product = []
-        let content = fs.readFileSync('./file/producto.txt', 'utf-8')
+    /** Se guardan los objetos en el archivo */
+    save(product) {
+        let content = fs.readFileSync('./file/producto.txt', 'utf-8');
+        let array_product;
         if (content) {
-            let content_object = JSON.parse(content)
-            array_product.push(content_object)
+            array_product = JSON.parse(content)
+        } else {
+            array_product = [];
         }
-
-        array_product.push(object);
-        let array_product_JSON = JSON.stringify(array_product);
-
-        fs.writeFileSync('./file/producto.txt', array_product_JSON, 'utf-8')
+        array_product.push(product);
+        array_product.forEach((value, index) => {
+            value.id = index + 1;
+        });
+        let array_product_string = JSON.stringify(array_product)
+        fs.writeFileSync('./file/producto.txt', array_product_string)
+        console.log('Se guardo la información')
     }
 
-    /** Obtiene el id buscado */
+    /** Se obtiene un elemento por el ID */
     getById(id) {
-
+        let content = fs.readFileSync('./file/producto.txt', 'utf-8');
+        let array_product;
+        if (content) {
+            array_product = JSON.parse(content)
+        }
+        let product_filter = array_product.find(element => element.id == id)
+        console.log(product_filter);
     }
 
-    /** Lista todo */
+    /** Se obtiene toda la información */
     getAll() {
-
+        let content = fs.readFileSync('./file/producto.txt', 'utf-8');
+        let array_product;
+        if (content) {
+            array_product = JSON.parse(content)
+        }
+        console.log(array_product)
     }
 
-    /** Elimina la información del id */
-    deleteById(id) {
-
+    /** Se elimina por ID */
+    async deleteById(id) {
+        try {
+            let content = fs.readFileSync('./file/producto.txt', 'utf-8');
+            let array_product;
+            if (content) {
+                array_product = JSON.parse(content)
+            }
+            array_product.splice(id - 1, 1)
+            let array_product_string = JSON.stringify(array_product)
+            await fs.promises.writeFile('./file/producto.txt', array_product_string)
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    /** Elimina todo */
+    /** Se elimina todo */
     deleteAll() {
-
+        fs.writeFileSync('./file/producto.txt', '');
+        console.log('Se elimina contenido del archivo');
     }
 }
 
-/** Se define el objeto */
-let object = {
-    title: 'Eucalipto',
-    price: 5500,
-    image: 'image/eucalipto.jpg'
-}
-
-
-const container = new Contenedor();
-container.save(object);
+/*** Sección de test */
+const container = new Container();
+// container.save({ title: 'rosas', total: 13000, image: 'image/jazmin.lpg' });
+// container.getById(3)
+// container.getAll()
+container.deleteById(2);
+// container.deleteAll();

@@ -1,1 +1,1 @@
-[{"title":"Eucalipto","price":5500,"image":"image/eucalipto.jpg"}]
+[{"title":"jazmin","total":13000,"image":"image/jazmin.lpg","id":1},{"title":"rosas","total":13000,"image":"image/jazmin.lpg","id":4}]
