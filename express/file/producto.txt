@@ -1,1 +1,20 @@
-[{"title":"jazmin","total":13000,"image":"image/jazmin.lpg","id":1},{"title":"rosas","total":13000,"image":"image/jazmin.lpg","id":4}]
+[
+    {
+        "title":"eucalipto",
+        "total":11500,
+        "image":"image/eucalipto.lpg",
+        "id":1
+    },
+    {
+        "title":"jazmin",
+        "total":15000,
+        "image":"image/jazmin.lpg",
+        "id":2
+    },
+    {
+        "title":"rosas",
+        "total":12000,
+        "image":"image/roses.lpg",
+        "id":3
+    }
+]   
