@@ -28,7 +28,7 @@ class Container {
             array_product = JSON.parse(content)
         }
         let product_filter = array_product.find(element => element.id == id)
-        console.log(product_filter);
+        return product_filter
     }
 
     /** Se obtiene toda la información */
@@ -38,7 +38,7 @@ class Container {
         if (content) {
             array_product = JSON.parse(content)
         }
-        console.log(array_product)
+        return content
     }
 
     /** Se elimina por ID */
@@ -64,10 +64,12 @@ class Container {
     }
 }
 
-/*** Sección de test */
-const container = new Container();
-// container.save({ title: 'rosas', total: 13000, image: 'image/jazmin.lpg' });
-// container.getById(3)
-// container.getAll()
-container.deleteById(2);
-// container.deleteAll();
+module.exports = Container;
+
+// /*** Sección de test */
+// const container = new Container();
+// // container.save({ title: 'rosas', total: 13000, image: 'image/jazmin.lpg' });
+// // container.getById(3)
+// // container.getAll()
+// container.deleteById(2);
+// // container.deleteAll();

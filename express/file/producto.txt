@@ -2,19 +2,19 @@
     {
         "title":"eucalipto",
         "total":11500,
-        "image":"image/eucalipto.lpg",
+        "image":"image/eucalipto.jpg",
         "id":1
     },
     {
         "title":"jazmin",
         "total":15000,
-        "image":"image/jazmin.lpg",
+        "image":"image/jazmin.jpg",
         "id":2
     },
     {
         "title":"rosas",
         "total":12000,
-        "image":"image/roses.lpg",
+        "image":"image/roses.jpg",
         "id":3
     }
-]   
+]  
