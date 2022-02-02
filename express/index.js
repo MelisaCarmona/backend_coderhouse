@@ -3,7 +3,7 @@ const app = express()
 const PORT = 8080
 const container = require('./contenedor.js')
 const container_class = new container();
-
+/** Clase 10 */
 /** Saludo de bienvenida (opcional) */
 app.get('/', (req, res) => {
     let productos = container_class.getAll()
