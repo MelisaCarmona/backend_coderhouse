@@ -28,6 +28,7 @@ class Container {
             array_product = JSON.parse(content)
         }
         let product_filter = array_product.find(element => element.id == id)
+        product_filter = JSON.stringify(product_filter)
         return product_filter
     }
 

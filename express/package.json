@@ -9,6 +9,7 @@
   "author": "Melisa Carmona",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "multer": "^1.4.4"
   }
 }
