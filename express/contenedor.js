@@ -53,6 +53,7 @@ class Container {
             array_product.splice(id - 1, 1)
             let array_product_string = JSON.stringify(array_product)
             await fs.promises.writeFile('./file/producto.txt', array_product_string)
+
         } catch (err) {
             console.log(err);
         }
@@ -62,6 +63,23 @@ class Container {
     deleteAll() {
         fs.writeFileSync('./file/producto.txt', '');
         console.log('Se elimina contenido del archivo');
+    }
+
+    update(id, product, price) {
+        let products = this.getAll()
+        products = JSON.parse(products)
+        products.map((e) => {
+            if (e.id == id) {
+                e.title = product
+                e.total = price
+            }
+        })
+
+
+        products = JSON.stringify(products)
+        fs.writeFileSync('./file/producto.txt', products)
+        return products
+
     }
 }
 
