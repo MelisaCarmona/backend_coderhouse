@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form class="col-3" method="POST" enctype="multipart/form-data" action="/api/productos">
+    <form class="col-3" method="POST" onsubmit="event.preventDefault()" enctype="multipart/form-data" action="/api/productos">
         <div class="mb-3">
             <label class="form-label">Producto</label>
             <input type="input" class="form-control" name="title">
